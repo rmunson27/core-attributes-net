@@ -18,7 +18,10 @@
 	<PropertyGroup Label="Output">
 		<TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
 		<OutputType>Library</OutputType>
-		<PackageReleaseNotes>Created the package.</PackageReleaseNotes>
+		<PackageReleaseNotes>
+			Removed the NamedEnumParameterAttribute and combined its functionality with the
+			NamedEnumAttribute (breaking change).
+		</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<PropertyGroup Label="Language">
