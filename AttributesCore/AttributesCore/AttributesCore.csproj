@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup Label="Identity">
 		<Product>Rem.Core.Attributes</Product>
@@ -8,6 +8,11 @@
 		</Description>
 		<RootNamespace>Rem.Core.Attributes</RootNamespace>
 		<Version>1.0</Version>
+		<Authors>Richard E. Munson</Authors>
+		<Copyright>Richard E. Munson, 2022</Copyright>
+		<WebPage>https://github.com/rmunson27/core-attributes-net/</WebPage>
+		<PackageTags>attributes;utilities;defaultable</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<PropertyGroup Label="Output">
@@ -20,6 +25,14 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
+
+	<PropertyGroup Label="Documentation" Condition="'$(Configuration)' == 'Release'">
+		<DocumentationFile>bin\Release\AttributesCore.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+		<Using Remove="System.Net.Http"/><!-- Remove this using from auto-generation since this package is not used -->
+	</ItemGroup>
 
 </Project>
 
