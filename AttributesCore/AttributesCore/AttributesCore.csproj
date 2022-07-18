@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup Label="Identity">
+		<Product>Rem.Attributes.Core</Product>
+		<Description>
+			A series of core attributes that can be useful in common .NET programming scenarios.
+		</Description>
+		<RootNamespace>Rem.Attributes</RootNamespace>
+		<Version>1.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Output">
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Language">
+		<LangVersion>10.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+</Project>
+
