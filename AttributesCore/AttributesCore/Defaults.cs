@@ -6,31 +6,32 @@ namespace Rem.Attributes;
 
 #region Struct Defaultability
 /// <summary>
-/// Indicates that a <see langword="struct"/>-type property, field or return value that is default-determinable should
-/// not accept the default value of its type.
+/// Indicates that a property, field, parameter or return value of a defaultable <see langword="struct"/> type should
+/// accept the default value of its type.
 /// </summary>
 /// <remarks>
-/// This is, in a way, the <i>opposite</i> of the struct equivalent of the nullability operator on types - the presence
-/// of this attribute indicates that a default-determinable struct should be considered <i>not</i> defaultable.
+/// This can be considered the struct equivalent of including the nullability (<c>?</c>) operator on a type in a
+/// nullable context.
 /// </remarks>
-/// <seealso cref="NonDefaultableStructParameterAttribute"/>
 [AttributeUsage(
-    AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue,
+    AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
+    AllowMultiple = false,
+    Inherited = true)]
+public sealed class DefaultableStructAttribute : Attribute { }
+
+/// <summary>
+/// Indicates that a property, field or return value of a defaultable <see langword="struct"/> type should not accept
+/// the default value of its type.
+/// </summary>
+/// <remarks>
+/// This can be considered the struct equivalent of excluding the nullability (<c>?</c>) operator on a type in a
+/// nullable context.
+/// </remarks>
+[AttributeUsage(
+    AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
     AllowMultiple = false,
     Inherited = true)]
 public sealed class NonDefaultableStructAttribute : Attribute { }
-
-/// <summary>
-/// Indicates that a <see langword="struct"/>-type parameter that is default-determinable should not be the default
-/// value of its type.
-/// </summary>
-/// <remarks>
-/// This is, in a way, the <i>opposite</i> of the struct equivalent of the nullability operator on types - the presence
-/// of this attribute indicates that a default-determinable struct should be considered <i>not</i> defaultable.
-/// </remarks>
-/// <seealso cref="NonDefaultableStructAttribute"/>
-[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
-public sealed class NonDefaultableStructParameterAttribute : Attribute { }
 #endregion
 
 #region General-Purpose
