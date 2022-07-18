@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Rem.Attributes;
+namespace Rem.Core.Attributes;
 
 #region Struct Defaultability
 /// <summary>

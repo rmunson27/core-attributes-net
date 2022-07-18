@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup Label="Identity">
-		<Product>Rem.Attributes.Core</Product>
+		<Product>Rem.Core.Attributes</Product>
+		<PackageId>Rem.Core.Attributes</PackageId>
 		<Description>
 			A series of core attributes that can be useful in common .NET programming scenarios.
 		</Description>
-		<RootNamespace>Rem.Attributes</RootNamespace>
+		<RootNamespace>Rem.Core.Attributes</RootNamespace>
 		<Version>1.0</Version>
 	</PropertyGroup>
 
