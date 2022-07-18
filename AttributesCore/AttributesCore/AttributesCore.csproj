@@ -18,6 +18,7 @@
 	<PropertyGroup Label="Output">
 		<TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
 		<OutputType>Library</OutputType>
+		<PackageReleaseNotes>Created the package.</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<PropertyGroup Label="Language">
