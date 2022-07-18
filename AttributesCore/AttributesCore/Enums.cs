@@ -5,26 +5,16 @@ using System.Text;
 namespace Rem.Core.Attributes;
 
 /// <summary>
-/// Indicates that an <see langword="enum"/>-type property, field or return value should not accept values of its
-/// type that are unnamed values.
+/// Indicates that an <see langword="enum"/>-type input should always be a named, defined value of its type.
+/// Indicates that an <see langword="enum"/>-type output is always a named, defined value of its type.
 /// </summary>
 /// <remarks>
-/// This attribute can also be used to indicate that a property, field or return value of an <see langword="enum"/>
-/// type that is decorated with a <see cref="FlagsAttribute"/> should only accept a bit set of named values.
+/// This attribute also covers bit sets of named, defined values if the <see langword="enum"/> type in question is
+/// decorated with an instance of <see cref="FlagsAttribute"/>.
 /// </remarks>
 [AttributeUsage(
-    AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.ReturnValue,
+    AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
     AllowMultiple = false,
-    Inherited = true)]
+    Inherited = false)]
 public sealed class NamedEnumAttribute : Attribute { }
-
-/// <summary>
-/// Indicates that an <see langword="enum"/>-type parameter should be a named value of its type.
-/// </summary>
-/// <remarks>
-/// This attribute can also be used to indicate that a parameter of an <see langword="enum"/>
-/// type that is decorated with a <see cref="FlagsAttribute"/> should be a bit set of only named values.
-/// </remarks>
-[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
-public sealed class NamedEnumParameterAttribute : Attribute { }
 
