@@ -165,5 +165,24 @@ public sealed class MemberNotDefaultAttribute : Attribute
     public MemberNotDefaultAttribute(params string[] MemberNames) { this.MemberNames = MemberNames; }
 }
 #endregion
+
+#region Default Instance Members
+/// <summary>
+/// Specifies that an output of a <see langword="struct"/> instance property or method may be the default value of
+/// its type if the instance is the default.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.ReturnValue,
+    AllowMultiple = false,
+    Inherited = false)]
+public sealed class MaybeDefaultIfInstanceDefaultAttribute : Attribute { }
+
+/// <summary>
+/// Specifies that a <see langword="struct"/> instance property or method does not return if the instance is
+/// the default.
+/// </summary>
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
+public sealed class DoesNotReturnIfInstanceDefaultAttribute : Attribute { }
+#endregion
 #endregion
 
