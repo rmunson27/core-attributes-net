@@ -16,7 +16,7 @@ namespace Rem.Core.Attributes;
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
     AllowMultiple = false,
-    Inherited = true)]
+    Inherited = false)]
 public sealed class DefaultableStructAttribute : Attribute { }
 
 /// <summary>
@@ -30,7 +30,7 @@ public sealed class DefaultableStructAttribute : Attribute { }
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
     AllowMultiple = false,
-    Inherited = true)]
+    Inherited = false)]
 public sealed class NonDefaultableStructAttribute : Attribute { }
 #endregion
 
