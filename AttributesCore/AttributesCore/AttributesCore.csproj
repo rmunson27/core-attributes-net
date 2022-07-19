@@ -7,7 +7,7 @@
 			A series of core attributes that can be useful in common .NET programming scenarios.
 		</Description>
 		<RootNamespace>Rem.Core.Attributes</RootNamespace>
-		<Version>1.1</Version>
+		<Version>1.2</Version>
 		<Authors>Richard E. Munson</Authors>
 		<Copyright>Richard E. Munson, 2022</Copyright>
 		<WebPage>https://github.com/rmunson27/core-attributes-net/</WebPage>
@@ -19,8 +19,9 @@
 		<TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
 		<OutputType>Library</OutputType>
 		<PackageReleaseNotes>
-			Removed the NamedEnumParameterAttribute and combined its functionality with the
-			NamedEnumAttribute (breaking change).
+			Made defaultable attributes non-inherited (potentially breaking change).
+			<br/>
+			Added attributes for describing behavior of default struct instances.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
@@ -39,4 +40,3 @@
 	</ItemGroup>
 
 </Project>
-
