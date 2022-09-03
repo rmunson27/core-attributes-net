@@ -90,6 +90,8 @@ public sealed class NonNameableEnumAttribute : Attribute { }
 /// Specifies that an unnamed enum value is allowed as an input even if the corresponding type or enum nameability
 /// attributes disallow it.
 /// </summary>
+/// <seealso cref="NameableEnumAttribute"/>
+/// <seealso cref="NonNameableEnumAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property,
     AllowMultiple = false,
@@ -100,6 +102,8 @@ public sealed class AllowUnnamedAttribute : Attribute { }
 /// Specifies that an unnamed enum value is disallowed as an input even if the corresponding type or enum nameability
 /// attributes allow it.
 /// </summary>
+/// <seealso cref="NameableEnumAttribute"/>
+/// <seealso cref="NonNameableEnumAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property,
     AllowMultiple = false, Inherited = false)]
@@ -109,6 +113,8 @@ public sealed class DisallowUnnamedAttribute : Attribute { }
 /// Specifies that an unnamed enum value is allowed as an output even if the corresponding type or enum nameability
 /// attributes disallow it.
 /// </summary>
+/// <seealso cref="NameableEnumAttribute"/>
+/// <seealso cref="NonNameableEnumAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
     AllowMultiple = false,
@@ -120,6 +126,8 @@ public sealed class MaybeUnnamedAttribute : Attribute { }
 /// attributes disallow it.
 /// Specifies that an input argument was a named enum value when the call returns.
 /// </summary>
+/// <seealso cref="NameableEnumAttribute"/>
+/// <seealso cref="NonNameableEnumAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
     AllowMultiple = false,
@@ -130,6 +138,8 @@ public sealed class NamedAttribute : Attribute { }
 /// Specifies that when a method returns <see cref="ReturnValue"/>, the parameter may be an unnamed enum value even
 /// if the corresponding type or enum nameability attributes disallow it.
 /// </summary>
+/// <seealso cref="NameableEnumAttribute"/>
+/// <seealso cref="NonNameableEnumAttribute"/>
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
 public sealed class MaybeUnnamedWhenAttribute : Attribute
 {
@@ -150,6 +160,8 @@ public sealed class MaybeUnnamedWhenAttribute : Attribute
 /// Specifies that when a method returns <see cref="ReturnValue"/>, the parameter will be a named enum value even if
 /// the corresponding type or enum nameability attributes disallow it.
 /// </summary>
+/// <seealso cref="NameableEnumAttribute"/>
+/// <seealso cref="NonNameableEnumAttribute"/>
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
 public sealed class NamedWhenAttribute : Attribute
 {

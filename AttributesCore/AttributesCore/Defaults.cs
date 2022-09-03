@@ -40,6 +40,8 @@ public sealed class NonDefaultableStructAttribute : Attribute { }
 /// Specifies that a default value is allowed as an input even if the corresponding type or struct defaultability
 /// attributes disallow it.
 /// </summary>
+/// <seealso cref="DefaultableStructAttribute"/>
+/// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property,
     AllowMultiple = false,
@@ -50,6 +52,8 @@ public sealed class AllowDefaultAttribute : Attribute { }
 /// Specifies that a default value is disallowed as an input even if the corresponding type or struct defaultability
 /// attributes allow it.
 /// </summary>
+/// <seealso cref="DefaultableStructAttribute"/>
+/// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property,
     AllowMultiple = false, Inherited = false)]
@@ -59,6 +63,8 @@ public sealed class DisallowDefaultAttribute : Attribute { }
 /// Specifies that a default value is allowed as an output even if the corresponding type or struct defaultability
 /// attributes disallow it.
 /// </summary>
+/// <seealso cref="DefaultableStructAttribute"/>
+/// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
     AllowMultiple = false,
@@ -70,6 +76,8 @@ public sealed class MaybeDefaultAttribute : Attribute { }
 /// allow it.
 /// Specifies that an input argument was not default when the call returns.
 /// </summary>
+/// <seealso cref="DefaultableStructAttribute"/>
+/// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(
     AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
     AllowMultiple = false,
@@ -80,6 +88,8 @@ public sealed class NotDefaultAttribute : Attribute { }
 /// Specifies that when a method returns <see cref="ReturnValue"/>, the parameter may be default even if the
 /// corresponding type or struct defaultability attributes disallow it.
 /// </summary>
+/// <seealso cref="DefaultableStructAttribute"/>
+/// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
 public sealed class MaybeDefaultWhenAttribute : Attribute
 {
@@ -100,6 +110,8 @@ public sealed class MaybeDefaultWhenAttribute : Attribute
 /// Specifies that when a method returns <see cref="ReturnValue"/>, the parameter will not be default even if the
 /// corresponding type or struct defaultability attributes allow it.
 /// </summary>
+/// <seealso cref="DefaultableStructAttribute"/>
+/// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
 public sealed class NotDefaultWhenAttribute : Attribute
 {
