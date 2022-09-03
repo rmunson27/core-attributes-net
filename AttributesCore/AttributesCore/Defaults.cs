@@ -139,6 +139,28 @@ public sealed class NotDefaultIfNotDefaultAttribute : Attribute
 }
 
 /// <summary>
+/// Specifies that the output will be non-default if the named parameter is a named enum value.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
+    AllowMultiple = true,
+    Inherited = false)]
+public sealed class NotDefaultIfNamedAttribute : Attribute
+{
+    /// <summary>
+    /// Gets the name of the parameter whose nameability describes the defaultability of the target.
+    /// </summary>
+    public string ParameterName { get; }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="NotDefaultIfNamedAttribute"/> class with the name of the
+    /// parameter whose nameability describes the defaultability of the target.
+    /// </summary>
+    /// <param name="ParameterName"></param>
+    public NotDefaultIfNamedAttribute(string ParameterName) { this.ParameterName = ParameterName; }
+}
+
+/// <summary>
 /// Specifies that the method or property will ensure that the listed field and property members have values that
 /// aren't default.
 /// </summary>
