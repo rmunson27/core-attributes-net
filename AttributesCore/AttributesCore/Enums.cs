@@ -52,8 +52,8 @@ public sealed class EnumBitSetOfAttribute : Attribute
 
 #region Nullability Operator Analogs
 /// <summary>
-/// Indicates that an <see langword="enum"/>-type input should always be a named, defined value of its type.
-/// Indicates that an <see langword="enum"/>-type output is always a named, defined value of its type.
+/// Indicates that a property, field, parameter, return value or type parameter of an <see langword="enum"/> type
+/// should not accept unnamed values of its type.
 /// </summary>
 /// <remarks>
 /// This can be considered the enum equivalent of excluding the nullability (<c>?</c>) operator on a type in a
@@ -63,13 +63,16 @@ public sealed class EnumBitSetOfAttribute : Attribute
 /// decorated with an instance of <see cref="FlagsAttribute"/>.
 /// </remarks>
 [AttributeUsage(
-    AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
+    AttributeTargets.Property | AttributeTargets.Field
+        | AttributeTargets.ReturnValue | AttributeTargets.Parameter
+        | AttributeTargets.GenericParameter,
     AllowMultiple = false,
     Inherited = false)]
 public sealed class NameableEnumAttribute : Attribute { }
 
 /// <summary>
-/// Indicates that an <see langword="enum"/>-type input or output may not be a named, defined value of its type.
+/// Indicates that a property, field, parameter, return value or type parameter of an <see langword="enum"/> type
+/// may accept unnamed values of its type.
 /// </summary>
 /// <remarks>
 /// This can be considered the enum equivalent of including the nullability (<c>?</c>) operator on a type in a
