@@ -6,29 +6,33 @@ namespace Rem.Core.Attributes;
 
 #region Struct Defaultability
 /// <summary>
-/// Indicates that a property, field, parameter or return value of a defaultable <see langword="struct"/> type should
-/// accept the default value of its type.
+/// Indicates that a property, field, parameter, return value or type parameter of a defaultable
+/// <see langword="struct"/> type should accept the default value of its type.
 /// </summary>
 /// <remarks>
-/// This can be considered the struct equivalent of including the nullability (<c>?</c>) operator on a type in a
-/// nullable context.
+/// This can be considered the struct equivalent of including the nullability (<c>?</c>) operator on a reference type
+/// declaration in a nullable context.
 /// </remarks>
 [AttributeUsage(
-    AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
+    AttributeTargets.Field | AttributeTargets.Property
+        | AttributeTargets.ReturnValue | AttributeTargets.Parameter
+        | AttributeTargets.GenericParameter,
     AllowMultiple = false,
     Inherited = false)]
 public sealed class DefaultableStructAttribute : Attribute { }
 
 /// <summary>
-/// Indicates that a property, field or return value of a defaultable <see langword="struct"/> type should not accept
-/// the default value of its type.
+/// Indicates that a property, field, parameter, return value or type parameter of a defaultable
+/// <see langword="struct"/> type should not accept the default value of its type.
 /// </summary>
 /// <remarks>
-/// This can be considered the struct equivalent of excluding the nullability (<c>?</c>) operator on a type in a
-/// nullable context.
+/// This can be considered the struct equivalent of excluding the nullability (<c>?</c>) operator on a reference type
+/// declaration in a nullable context.
 /// </remarks>
 [AttributeUsage(
-    AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
+    AttributeTargets.Field | AttributeTargets.Property
+        | AttributeTargets.ReturnValue | AttributeTargets.Parameter
+        | AttributeTargets.GenericParameter,
     AllowMultiple = false,
     Inherited = false)]
 public sealed class NonDefaultableStructAttribute : Attribute { }
