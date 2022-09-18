@@ -36,6 +36,39 @@ public sealed class DefaultableStructAttribute : Attribute { }
     AllowMultiple = false,
     Inherited = false)]
 public sealed class NonDefaultableStructAttribute : Attribute { }
+
+/// <summary>
+/// Indicates that a generic <see langword="struct"/> type definition should be considered defaultable if and only if
+/// the listed type parameters are non-defaultable.
+/// </summary>
+[AttributeUsage(AttributeTargets.Struct, AllowMultiple = false, Inherited = false)]
+public sealed class DefaultableIfTypeParamsNonDefaultableAttribute : Attribute
+{
+    /// <summary>
+    /// Gets the list of type parameter names that indicate the defaultability of the declared
+    /// <see langword="struct"/> type.
+    /// </summary>
+    public string[] ParameterNames { get; }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="DefaultableIfTypeParamsNonDefaultableAttribute"/> class with
+    /// the name of the type parameter that indicate the defaultability of the declared <see langword="struct"/> type.
+    /// </summary>
+    /// <param name="ParameterName"></param>
+    public DefaultableIfTypeParamsNonDefaultableAttribute(string ParameterName) : this(new[] { ParameterName })
+    { }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="DefaultableIfTypeParamsNonDefaultableAttribute"/> class with
+    /// the names of the type parameters that indicate the defaultability of the declared
+    /// <see langword="struct"/> type.
+    /// </summary>
+    /// <param name="ParameterNames"></param>
+    public DefaultableIfTypeParamsNonDefaultableAttribute(params string[] ParameterNames)
+    {
+        this.ParameterNames = ParameterNames;
+    }
+}
 #endregion
 
 #region General-Purpose
