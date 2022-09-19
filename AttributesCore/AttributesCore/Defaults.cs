@@ -237,6 +237,40 @@ public sealed class MemberNotDefaultAttribute : Attribute
 }
 #endregion
 
+#region Type Parameters
+/// <summary>
+/// Indicates that an output is not the default value of its type if the listed type parameters are non-defaultable,
+/// even if the corresponding type or struct defaultability attributes allow it.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
+    AllowMultiple = false, Inherited = false)]
+public sealed class NotDefaultIfTypeParamsNonDefaultableAttribute : Attribute
+{
+    /// <summary>
+    /// Gets the list of type parameter names that indicate the defaultability of the target.
+    /// </summary>
+    public string[] ParameterNames { get; }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="NotDefaultIfTypeParamsNonDefaultableAttribute"/> with the name of
+    /// the type parameter that indicates the defaultability of the target.
+    /// </summary>
+    /// <param name="ParameterName"></param>
+    public NotDefaultIfTypeParamsNonDefaultableAttribute(string ParameterName) : this(new[] { ParameterName }) { }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="NotDefaultIfTypeParamsNonDefaultableAttribute"/> with the names of
+    /// the type parameters that indicate the defaultability of the target.
+    /// </summary>
+    /// <param name="ParameterNames"></param>
+    public NotDefaultIfTypeParamsNonDefaultableAttribute(params string[] ParameterNames)
+    {
+        this.ParameterNames = ParameterNames;
+    }
+}
+#endregion
+
 #region Default Instance Members
 /// <summary>
 /// Specifies that an output of a <see langword="struct"/> instance property or method may be the default value of
