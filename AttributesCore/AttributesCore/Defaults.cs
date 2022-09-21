@@ -288,6 +288,21 @@ public sealed class MaybeDefaultIfInstanceDefaultAttribute : Attribute { }
 /// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
 public sealed class DoesNotReturnIfInstanceDefaultAttribute : Attribute { }
+
+/// <summary>
+/// Specifies that the decorated <see langword="struct"/> instance property, method or field may return or be
+/// accessed without incurring an exception when accessed from a default instance, but should only be accessed from a
+/// non-default instance.
+/// </summary>
+/// <remarks>
+/// This differs from the meaning of the <see cref="DoesNotReturnIfInstanceDefaultAttribute"/> class, which specifies
+/// that the target will <i>never</i> return if accessed from a default instance.
+/// </remarks>
+[AttributeUsage(
+    AttributeTargets.Property | AttributeTargets.Method | AttributeTargets.Field,
+    AllowMultiple = false,
+    Inherited = false)]
+public sealed class InstanceNotDefaultAttribute : Attribute { }
 #endregion
 #endregion
 
