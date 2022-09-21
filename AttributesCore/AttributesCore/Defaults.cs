@@ -290,13 +290,15 @@ public sealed class MaybeDefaultIfInstanceDefaultAttribute : Attribute { }
 public sealed class DoesNotReturnIfInstanceDefaultAttribute : Attribute { }
 
 /// <summary>
-/// Specifies that the decorated <see langword="struct"/> instance property, method or field may return or be
-/// accessed without incurring an exception when accessed from a default instance, but should only be accessed from a
+/// Specifies that the decorated <see langword="struct"/> instance property, method or field should only be accessed from a
 /// non-default instance.
 /// </summary>
 /// <remarks>
+/// The target instance member may return or be accessed successfully from a default instance (without incurring an
+/// exception), but this attribute indicates that doing so is not advised.
+/// <para/>
 /// This differs from the meaning of the <see cref="DoesNotReturnIfInstanceDefaultAttribute"/> class, which specifies
-/// that the target will <i>never</i> return if accessed from a default instance.
+/// that the target instance member will <i>never</i> return if accessed from a default instance.
 /// </remarks>
 [AttributeUsage(
     AttributeTargets.Property | AttributeTargets.Method | AttributeTargets.Field,
