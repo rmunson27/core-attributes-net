@@ -248,7 +248,7 @@ public sealed class MemberNotDefaultAttribute : Attribute
 public sealed class NotDefaultIfTypeParamsNonDefaultableAttribute : Attribute
 {
     /// <summary>
-    /// Gets the list of type parameter names that indicate the defaultability of the target.
+    /// Gets a list containing the names of type parameters that indicate the defaultability of the target.
     /// </summary>
     public string[] ParameterNames { get; }
 
@@ -265,6 +265,38 @@ public sealed class NotDefaultIfTypeParamsNonDefaultableAttribute : Attribute
     /// </summary>
     /// <param name="ParameterNames"></param>
     public NotDefaultIfTypeParamsNonDefaultableAttribute(params string[] ParameterNames)
+    {
+        this.ParameterNames = ParameterNames;
+    }
+}
+
+/// <summary>
+/// Indicates that an output is not the default value of its type if the listed type parameters are non-nullable,
+/// even if the corresponding type or struct defaultability attributes allow it.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.ReturnValue | AttributeTargets.Parameter,
+    AllowMultiple = false, Inherited = false)]
+public sealed class NotDefaultIfTypeParamsNonNullableAttribute : Attribute
+{
+    /// <summary>
+    /// Gets a list containing the names of type parameters that indicate the defaultability of the target.
+    /// </summary>
+    public string[] ParameterNames { get; }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="NotDefaultIfTypeParamsNonNullableAttribute"/> with the name of
+    /// the type parameter that indicates the defaultability of the target.
+    /// </summary>
+    /// <param name="ParameterName"></param>
+    public NotDefaultIfTypeParamsNonNullableAttribute(string ParameterName) : this(new[] { ParameterName }) { }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="NotDefaultIfTypeParamsNonNullableAttribute"/> with the names of
+    /// the type parameters that indicate the defaultability of the target.
+    /// </summary>
+    /// <param name="ParameterNames"></param>
+    public NotDefaultIfTypeParamsNonNullableAttribute(params string[] ParameterNames)
     {
         this.ParameterNames = ParameterNames;
     }
