@@ -188,6 +188,29 @@ public sealed class NotDefaultIfNotDefaultAttribute : Attribute
 }
 
 /// <summary>
+/// Specifies that the output may be the default if the named parameter is the default, even if the corresponding type
+/// or struct defaultability attributes disallow it.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
+    AllowMultiple = true,
+    Inherited = false)]
+public sealed class MaybeDefaultIfDefaultAttribute : Attribute
+{
+    /// <summary>
+    /// Gets the name of the parameter whose defaultability describes the defaultability of the target.
+    /// </summary>
+    public string ParameterName { get; }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="MaybeDefaultIfDefaultAttribute"/> class with the name of the
+    /// parameter whose defaultability describes the defaultability of the target.
+    /// </summary>
+    /// <param name="ParameterName"></param>
+    public MaybeDefaultIfDefaultAttribute(string ParameterName) { this.ParameterName = ParameterName; }
+}
+
+/// <summary>
 /// Specifies that the output will be non-default if the named parameter is a named enum value.
 /// </summary>
 [AttributeUsage(
