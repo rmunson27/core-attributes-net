@@ -111,12 +111,16 @@ public sealed class MaybeDefaultAttribute : Attribute { }
 /// <summary>
 /// Specifies that an output is not the default even if the corresponding type or struct defaultability attributes
 /// allow it.
+/// <para/>
 /// Specifies that an input argument was not default when the call returns.
+/// <para/>
+/// Specifies that a <see langword="struct"/> constructor never constructs a default value.
 /// </summary>
 /// <seealso cref="DefaultableStructAttribute"/>
 /// <seealso cref="NonDefaultableStructAttribute"/>
 [AttributeUsage(
-    AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
+    AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.Property
+        | AttributeTargets.ReturnValue | AttributeTargets.Constructor,
     AllowMultiple = false,
     Inherited = false)]
 public sealed class NotDefaultAttribute : Attribute { }
@@ -167,9 +171,13 @@ public sealed class NotDefaultWhenAttribute : Attribute
 
 /// <summary>
 /// Specifies that the output will be non-default if the named parameter is non-default.
+/// <para/>
+/// Specifies that a <see langword="struct"/> constructor does not construct the default if the named parameter
+/// is non-default.
 /// </summary>
 [AttributeUsage(
-    AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
+    AttributeTargets.Parameter | AttributeTargets.Property
+        | AttributeTargets.ReturnValue | AttributeTargets.Constructor,
     AllowMultiple = true,
     Inherited = false)]
 public sealed class NotDefaultIfNotDefaultAttribute : Attribute
@@ -212,9 +220,13 @@ public sealed class MaybeDefaultIfDefaultAttribute : Attribute
 
 /// <summary>
 /// Specifies that the output will be non-default if the named parameter is a named enum value.
+/// <para/>
+/// Specifies that a <see langword="struct"/> constructor will not construct a default value if the named parameter is
+/// a named enum value.
 /// </summary>
 [AttributeUsage(
-    AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.ReturnValue,
+    AttributeTargets.Parameter | AttributeTargets.Property
+        | AttributeTargets.ReturnValue | AttributeTargets.Constructor,
     AllowMultiple = true,
     Inherited = false)]
 public sealed class NotDefaultIfNamedAttribute : Attribute
