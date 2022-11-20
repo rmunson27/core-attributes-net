@@ -261,7 +261,7 @@ public sealed class MemberNotDefaultAttribute : Attribute
     /// property that will not be default when the target returns.
     /// </summary>
     /// <param name="MemberName"></param>
-    public MemberNotDefaultAttribute(string MemberName) { this.MemberNames = new[] { MemberName }; }
+    public MemberNotDefaultAttribute(string MemberName) { MemberNames = new[] { MemberName }; }
 
     /// <summary>
     /// Constructs a new instance of the <see cref="MemberNotDefaultAttribute"/> class with the names of methods or
