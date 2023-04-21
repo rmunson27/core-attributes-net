@@ -3,11 +3,9 @@
 	<PropertyGroup Label="Identity">
 		<Product>Rem.Core.Attributes</Product>
 		<PackageId>Rem.Core.Attributes</PackageId>
-		<Description>
-			A series of core attributes that can be useful in common .NET programming scenarios.
-		</Description>
+		<Description>A series of core attributes that can be useful in common .NET programming scenarios.</Description>
 		<RootNamespace>Rem.Core.Attributes</RootNamespace>
-		<Version>1.4</Version>
+		<Version>1.4.1</Version>
 		<Authors>Richard E. Munson</Authors>
 		<Copyright>Richard E. Munson, 2022</Copyright>
 		<WebPage>https://github.com/rmunson27/core-attributes-net/</WebPage>
@@ -18,13 +16,11 @@
 	<PropertyGroup Label="Output">
 		<TargetFrameworks>net461;netstandard2.0;netstandard2.1</TargetFrameworks>
 		<OutputType>Library</OutputType>
-		<PackageReleaseNotes>
-			Added constructor targets to attributes that can indicate that a struct constructor does not yield a default instance. Replaced the .NET 5 target with a .NET standard 2.1 target.
-		</PackageReleaseNotes>
+		<PackageReleaseNotes>Added a few useful missing defaultable attributes.</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<PropertyGroup Label="Language">
-		<LangVersion>10.0</LangVersion>
+		<LangVersion>11.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
