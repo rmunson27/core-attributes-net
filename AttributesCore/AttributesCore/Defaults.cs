@@ -196,6 +196,30 @@ public sealed class NotDefaultIfNotDefaultAttribute : Attribute
 }
 
 /// <summary>
+/// Specifies that the output will be non-default if the named parameter is non-<see langword="null"/>.
+/// <para/>
+/// Specifies that a <see langword="struct"/> constructor does not construct the default if the named parameter
+/// is non-<see langword="null"/>.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.Parameter | AttributeTargets.Property
+        | AttributeTargets.ReturnValue | AttributeTargets.Constructor,
+    AllowMultiple = true,
+    Inherited = false)]
+public sealed class NotDefaultIfNotNullAttribute : Attribute
+{
+    /// <summary>
+    /// Gets the name of the parameter whose defaultability describes the nullability of the target.
+    /// </summary>
+    public string ParameterName { get; }
+
+    /// <summary>
+    /// Gets the name of the parameter whose defaultability describes the nullability of the target.
+    /// </summary>
+    public NotDefaultIfNotNullAttribute(string ParameterName) { this.ParameterName = ParameterName; }
+}
+
+/// <summary>
 /// Specifies that the output may be the default if the named parameter is the default, even if the corresponding type
 /// or struct defaultability attributes disallow it.
 /// </summary>
@@ -245,8 +269,8 @@ public sealed class NotDefaultIfNamedAttribute : Attribute
 }
 
 /// <summary>
-/// Specifies that the method or property will ensure that the listed field and property members have values that
-/// aren't default.
+/// Specifies that the method or property will ensure that the listed field, method and property members have values or
+/// return values that aren't default.
 /// </summary>
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
 public sealed class MemberNotDefaultAttribute : Attribute
@@ -257,18 +281,63 @@ public sealed class MemberNotDefaultAttribute : Attribute
     public string[] MemberNames { get; }
 
     /// <summary>
-    /// Constructs a new instance of the <see cref="MemberNotDefaultAttribute"/> class with the name of a method or
-    /// property that will not be default when the target returns.
+    /// Constructs a new instance of the <see cref="MemberNotDefaultAttribute"/> class with the name of a field, method
+    /// or property that will not have a default value or return value when the target returns.
     /// </summary>
     /// <param name="MemberName"></param>
     public MemberNotDefaultAttribute(string MemberName) { MemberNames = new[] { MemberName }; }
 
     /// <summary>
-    /// Constructs a new instance of the <see cref="MemberNotDefaultAttribute"/> class with the names of methods or
-    /// properties that will not be default when the target returns.
+    /// Constructs a new instance of the <see cref="MemberNotDefaultAttribute"/> class with the names of fields,
+    /// methods or properties that will not have default values or return values when the target returns.
     /// </summary>
     /// <param name="MemberNames"></param>
     public MemberNotDefaultAttribute(params string[] MemberNames) { this.MemberNames = MemberNames; }
+}
+
+/// <summary>
+/// Specifies that the method or property will ensure that the listed field, method and property members have values
+/// or return values that aren't default when returning with the specified boolean condition.
+/// </summary>
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
+public sealed class MemberNotDefaultWhenAttribute : Attribute
+{
+    /// <summary>
+    /// Gets the return value that indicates that the listed members do not have default values or return values.
+    /// </summary>
+    public bool ReturnValue { get; }
+
+    /// <summary>
+    /// Gets the names of fields, methods or properties that will not have default values or return values when the
+    /// target returns.
+    /// </summary>
+    public string[] MemberNames { get; }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="MemberNotDefaultWhenAttribute"/> class with a specified boolean
+    /// return value and the name of a field, method or property that will not have a default value or return value
+    /// when the target returns the specified return value.
+    /// </summary>
+    /// <param name="ReturnValue"></param>
+    /// <param name="MemberName"></param>
+    public MemberNotDefaultWhenAttribute(bool ReturnValue, string MemberName)
+    {
+        this.ReturnValue = ReturnValue;
+        MemberNames = new[] { MemberName };
+    }
+
+    /// <summary>
+    /// Constructs a new instance of the <see cref="MemberNotDefaultWhenAttribute"/> class with a specified boolean
+    /// return value and the names of fields, methods or properties that will not have default values or return values
+    /// when the target returns the specified return value.
+    /// </summary>
+    /// <param name="ReturnValue"></param>
+    /// <param name="MemberNames"></param>
+    public MemberNotDefaultWhenAttribute(bool ReturnValue, params string[] MemberNames)
+    {
+        this.ReturnValue = ReturnValue;
+        this.MemberNames = MemberNames;
+    }
 }
 #endregion
 
@@ -374,4 +443,3 @@ public sealed class DoesNotReturnIfInstanceDefaultAttribute : Attribute { }
 public sealed class InstanceNotDefaultAttribute : Attribute { }
 #endregion
 #endregion
-
